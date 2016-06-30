@@ -3,11 +3,17 @@ import {Component} from '@angular/core';
 @Component({
     selector: 'my-app',
     template: `
-        <h1>Angular 2 Boilerplate</h1>
-        <p>Hello World!!</p>
-       
+        {{'Hey'}} <br>
+        {{1 === 1}}<br>
+        {{name}}<br>
+        {{onTest()}}<br>
+        <input type="text" value="{{name}}" class="{{'red'}}">
     `,
 })
 export class AppComponent {
+    name = 'Matt';
 
+    onTest() {
+        return 1 === 1;
+    }
 }
