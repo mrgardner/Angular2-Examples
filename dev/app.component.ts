@@ -1,30 +1,22 @@
 import {Component} from '@angular/core';
+import {PropertyBindingComponent} from "./property-binding.component";
 
 @Component({
     selector: 'my-app',
     template: `
-       {{onTest()}}
-       <br>
-       <input type="text" [value]="name" [ngClass]="{
-            red: true
-       }" (keyup)="onKeyup(inputElement.value)" #inputElement>
+    <section class="parent">
+        <h2>This is the parent component</h2>
+        <h4>Please enter your name</h4>
+        <input type="text" [(ngModel)]="name">
+        <br><br>
+        <section class="child">
+            <my-property-binding [myName]="name" [myAge]="26"></my-property-binding>
+        </section>
+    </section>
        
-       <p>{{values}}</p>
-       <br>
-       <input type="text" [(ngModel)]="name">
-       <p>Your Name: {{name}}</p>
     `,
+    directives: [PropertyBindingComponent]
 })
 export class AppComponent {
-    name = 'Matt';
-    values = '';
-
-    onTest(){
-        return 1 === 1;
-    }
-
-    onKeyup(value: string) {
-        this.values += value + ' | ';
-    }
-
+    name = '';
 }
