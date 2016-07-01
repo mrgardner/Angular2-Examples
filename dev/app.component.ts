@@ -10,6 +10,9 @@ import {Component} from '@angular/core';
        }" (keyup)="onKeyup(inputElement.value)" #inputElement>
        
        <p>{{values}}</p>
+       <br>
+       <input type="text" [(ngModel)]="name">
+       <p>Your Name: {{name}}</p>
     `,
 })
 export class AppComponent {
