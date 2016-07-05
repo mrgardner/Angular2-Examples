@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {ReversePipe} from "./reverse.pipe";
 
 @Component({
     selector: 'my-app',
@@ -36,12 +37,22 @@ import {Component} from '@angular/core';
         </section>
         
         <section class="pipe">
-            
+            <h2>Custom Pipe (Reverse string)</h2>
+            <input type="text" #inputCustomPipe (keyup)="0"><br>
+            <div>Output: {{inputCustomPipe.value | myReverse}}</div>
         </section>
         
-       
+         <section class="pipe">
+            <h2>Async (stateful) pipes</h2>
+            <div>Output: (received after 2s): {{stateFulPipeOutput | async}}</div>
+        </section>
     `,
+    pipes: [ReversePipe]
 })
 export class AppComponent {
     today = new Date();
+
+    stateFulPipeOutput = new Promise((resolve, reject) => {
+        setTimeout(() => resolve('Data is there!'), 2000);
+    });
 }
