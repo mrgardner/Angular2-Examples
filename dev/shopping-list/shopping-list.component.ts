@@ -38,4 +38,8 @@ export class ShoppingListComponent implements OnInit {
     ngOnInit():any {
         this.listItems = this._shoppingListService.getItems();
     }
+
+    onRemove(item: ListItem) {
+        this._shoppingListService.deleteItem(item);
+    }
 }
