@@ -1,12 +1,18 @@
 import {Component} from '@angular/core';
+import {Component1Component} from "./component1.component";
+import {Component2Component} from "./component2.component";
 
 @Component({
     selector: 'my-app',
     template: `
-        <h1>Angular 2 Boilerplate</h1>
-        <p>Hello World!!</p>
-       
+        <section class="component">
+            <my-component-1></my-component-1>
+        </section>
+        <section class="component">
+            <my-component-2></my-component-2>
+        </section>
     `,
+    directives: [Component1Component, Component2Component]
 })
 export class AppComponent {
 
